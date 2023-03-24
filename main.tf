@@ -14,17 +14,11 @@ provider "aws" {
 }
 
 resource "aws_instance" "app_server" {
-  ami           = "ami-830c94e3"
+  ami           = "ami-0735c191cf914754d"
   instance_type = "t2.micro"
   key_name = "iac-alura"
-  user_data =  <<-EOF
-                  #!/bin/bash
-                  cd /home/ubuntu
-                  echo "<h1> Terraform Configure</h1" > index.html
-                  nohup busybox httpd -f -p 8080 &
-                EOF 
-
+ 
   tags = {
-    Name =" Webserver Test "
+    Name =" Python3 VirtualEnv"
   }
 }
